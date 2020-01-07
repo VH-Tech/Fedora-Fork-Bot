@@ -6,7 +6,7 @@ import requests
 
 r = requests.get('https://api.github.com/orgs/fedora-infra/repos').content.decode('UTF-8')
 
-key = ''
+key = '' #Your API token goes here
 
 
 updater = Updater(token=key, use_context=True)
