@@ -17,15 +17,20 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 
 def forks(update, context):
-    words = update.message.text.split(' ')
+    if update.message.text != '':
+        words = update.message.text.split(' ')
 
-    for j in json.loads(r):
-        if j['name'] == words[1]:
+        for j in json.loads(r):
+            if j['name'] == words[1]:
             context.bot.send_message(chat_id=update.effective_chat.id, text="Number of forks for " + words[1] + " are: " + str(j['forks']))
             return
 
-    context.bot.send_message(chat_id=update.effective_chat.id, text="Please enter a valid repository name")
-
+        context.bot.send_message(chat_id=update.effective_chat.id, text="Please enter a valid repository name")
+        
+    else:
+        context.bot.send_message(chat_id=update.effective_chat.id, text="Please enter a repository name")
+  
+    
 
 def serve(update, context):
     if update.message.text.lower() == 'hi' or update.message.text.lower() == 'hello':
