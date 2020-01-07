@@ -25,7 +25,6 @@ def forks(update, context):
             return
 
     context.bot.send_message(chat_id=update.effective_chat.id, text="Please enter a valid repository name")
-    print(update.message.text)
 
 
 def serve(update, context):
